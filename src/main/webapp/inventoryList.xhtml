@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <div class="p-d-flex">
+        <div class="p-mr-2">
+            <p:dataTable var="inventory" value="#{inventoryBean.inventoryList}">
+                <p:column headerText="Name">
+                    <h:outputText value="#{inventory.name}"/>
+                </p:column>
+
+                <p:column headerText="Sport">
+                    <h:outputText value="#{inventory.sport}"/>
+                </p:column>
+
+                <p:column headerText="Quantity">
+                    <h:outputText value="#{inventory.quantity}"/>
+                </p:column>
+
+                <p:column headerText="Price Per Unit">
+                    <h:outputText value="#{inventory.pricePerUnit}"/>
+                </p:column>
+
+                <p:column headerText="Date Added">
+                    <h:outputText value="#{inventory.dateAdded}"/>
+                </p:column>
+
+                <p:column headerText="Date Updated">
+                    <h:outputText value="#{inventory.dateUpdated}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+
+        <div class="p-mr-2" style="margin-top: 2em">
+            <h:form>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="name" style="margin-right: 1em">Item Name: </p:outputLabel>
+                    <p:inputText id="name" type="text" value="#{inventoryBean.name}"/>
+                    <p:message for="@previous"/>
+                </div>
+
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="sport" style="margin-right: 1em">Item Sport: </p:outputLabel>
+                    <p:inputText id="sport" type="text" value="#{inventoryBean.sport}"/>
+                    <p:message for="@previous"/>
+                </div>
+
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="quantity" style="margin-right: 1em">Item Quantity: </p:outputLabel>
+                    <p:inputText id="quantity" type="text" value="#{inventoryBean.quantity}"/>
+                    <p:message for="@previous"/>
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="pricePerUnit" style="margin-right: 1em">Item Price Per Unit: </p:outputLabel>
+                    <p:inputText id="pricePerUnit" type="text" value="#{inventoryBean.pricePerUnit}"/>
+                    <p:message for="@previous"/>
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:commandButton type="submit" action="#{inventoryBean.addInventory}"
+                                     ajax="false" validateClient="true"
+                                     value="Add inventory" icon="pi pi-check" iconPos="right"/>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+</h:body>
+</html>
